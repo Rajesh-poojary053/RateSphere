@@ -1,0 +1,144 @@
+
+/* STORE IMAGE - USER DASHBOARD */
+
+.store-card-art {
+  height: 210px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #172535;
+  border-radius: 0;
+}
+
+.store-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 5px;
+  background: #111b29;
+}
+
+.store-art-icon {
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(122,232,211,.3);
+  background: rgba(115,227,208,.08);
+  border-radius: 25px;
+  color: #78e6d2;
+}
+
+.store-featured {
+  z-index: 3;
+}
+
+.store-heart {
+  z-index: 4;
+}
+
+@media (max-width: 700px) {
+  .store-card-art {
+    height: 220px;
+  }
+}
+
+.change-password-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 30px 0;
+  max-width: 600px;
+  color: #1f2937;
+}
+
+.change-password-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 25px;
+  color: #7c3aed;
+}
+
+.change-password-heading h2 {
+  margin: 0;
+  color: #111827;
+}
+
+.change-password-heading p {
+  margin: 5px 0 0;
+  color: #6b7280;
+}
+
+.password-field {
+  margin-bottom: 18px;
+}
+
+.password-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.password-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  padding: 0 12px;
+}
+
+.password-input-wrapper input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 13px 0;
+  background: transparent;
+}
+
+.password-input-wrapper button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.change-password-card small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  flex-wrap: wrap;
+}
+
+.password-submit {
+  margin-top: 20px;
+  width: 100%;
+  padding: 13px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.password-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.password-error {
+  color: #dc2626;
+}
+
+.password-success {
+  color: #16a34a;
+}
