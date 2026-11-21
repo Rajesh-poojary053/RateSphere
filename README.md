@@ -6,7 +6,7 @@ RateSphere is a full-stack web application that helps customers discover stores,
 
 - **Website:** https://rate-sphere.vercel.app
 - **Login:** https://rate-sphere.vercel.app/login
-- **Backend API:** https://ratesphere-backend.onrender.com
+- **Backend API:** https://ratesphere-backend.onrender.com/api
 - **API Health Check:** https://ratesphere-backend.onrender.com/api/health
 
 ## GitHub Repository
@@ -87,7 +87,6 @@ https://github.com/Rajesh-poojary053/RateSphere
 
 ```text
 RateSphere/
-│
 ├── frontend/
 │   ├── public/
 │   ├── src/
@@ -98,7 +97,6 @@ RateSphere/
 │   │   └── App.jsx
 │   ├── package.json
 │   └── vite.config.js
-│
 ├── backend/
 │   ├── src/
 │   │   ├── config/
@@ -111,18 +109,14 @@ RateSphere/
 │   ├── prisma/
 │   │   └── schema.prisma
 │   └── package.json
-│
 ├── documentation/
 │   └── screenshots/
-│
 └── README.md
 ```
 
 ## Installation and Local Setup
 
 ### Prerequisites
-
-Install the following:
 
 - Node.js
 - npm
@@ -177,9 +171,7 @@ npm run dev
 
 Backend URL:
 
-```text
 http://localhost:5000
-```
 
 ### 3. Setup the Frontend
 
@@ -204,9 +196,7 @@ npm run dev
 
 Open the application:
 
-```text
 http://localhost:5173
-```
 
 ## Deployment
 
@@ -214,15 +204,19 @@ RateSphere is deployed using Render and Vercel.
 
 ### Backend Deployment – Render
 
-- Platform: Render
-- Service: Node.js Web Service
-- Root Directory: `backend`
-- Build Command: `npm install && npx prisma generate`
-- Start Command: `npm start`
+- **Platform:** Render
+- **Service:** Node.js Web Service
+- **Root Directory:** `backend`
+- **Build Command:** `npm install && npx prisma generate`
+- **Start Command:** `npm start`
 
-Production backend:
+**Production Backend:**
 
-https://ratesphere-backend.onrender.com
+https://ratesphere-backend.onrender.com/api
+
+**Backend Health Check:**
+
+https://ratesphere-backend.onrender.com/api/health
 
 Configure the required environment variables in Render, including:
 
@@ -236,11 +230,11 @@ The production database schema must be initialized against the Render PostgreSQL
 
 ### Frontend Deployment – Vercel
 
-- Platform: Vercel
-- Root Directory: `frontend`
-- Framework: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
+- **Platform:** Vercel
+- **Root Directory:** `frontend`
+- **Framework:** Vite
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
 
 Frontend environment variable:
 
@@ -248,7 +242,7 @@ Frontend environment variable:
 VITE_API_URL=https://ratesphere-backend.onrender.com/api
 ```
 
-Live website:
+**Live Website:**
 
 https://rate-sphere.vercel.app
 
@@ -280,4 +274,4 @@ Vidyashilp University
 
 ## License
 
-This project was developed for learning purposes.
+This project was developed for academic and learning purposes.
