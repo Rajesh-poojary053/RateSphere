@@ -1,53 +1,56 @@
-<<<<<<< HEAD
-# RateSphere
-Store Rating and Review Platform built using React, Node.js, Express and PostgreSQL.
-=======
 # RateSphere – Store Rating and Review Platform
 
-RateSphere is a full-stack web application that helps customers discover stores, view ratings, and make better shopping decisions. Store owners can manage their business information and monitor customer feedback, while administrators manage the platform.
+RateSphere is a full-stack web application that helps customers discover stores, view ratings, and make better shopping decisions. Store owners can manage their business information and monitor customer feedback, while administrators manage users, stores, and platform activity.
+
+## Live Application
+
+- **Website:** https://rate-sphere.vercel.app
+- **Login:** https://rate-sphere.vercel.app/login
+- **Backend API:** https://ratesphere-backend.onrender.com
+- **API Health Check:** https://ratesphere-backend.onrender.com/api/health
+
+## GitHub Repository
+
+https://github.com/Rajesh-poojary053/RateSphere
 
 ## Project Screenshots
 
 ### User Dashboard
-
-![RateSphere User Dashboard](<documentation/screenshots/user Dashboard.png>)
+![RateSphere User Dashboard](documentation/screenshots/user%20Dashboard.png)
 
 ### User Dashboard – Store Discovery
-
-![RateSphere User Dashboard 2](<documentation/screenshots/user dashboard2.png>)
+![RateSphere Store Discovery](documentation/screenshots/user%20dashboard2.png)
 
 ### Store Owner Dashboard
-
-![RateSphere Store Owner Dashboard](<documentation/screenshots/store owner dashboard.png>)
+![RateSphere Store Owner Dashboard](documentation/screenshots/store%20owner%20dashboard.png)
 
 ### Admin Dashboard
-
-![RateSphere Admin Dashboard](<documentation/screenshots/Admin Dashboard.png>)
+![RateSphere Admin Dashboard](documentation/screenshots/Admin%20Dashboard.png)
 
 ## Features
 
 ### Customer
-- Register and log in securely
-- Discover available stores
-- Search stores by name and location
-- View store ratings and reviews
-- Add stores to favorites
-- Submit and manage ratings
-- Change account password
+- Register and log in securely.
+- Discover available stores.
+- Search stores by name and location.
+- View store ratings and reviews.
+- Add stores to favorites.
+- Submit and manage ratings.
+- Change account password.
 
 ### Store Owner
-- Secure store owner login
-- View business dashboard
-- Monitor store ratings and customer feedback
-- Update store name, email, and address
-- Upload and update store images
-- Change account password
+- Secure store owner login.
+- View business dashboard.
+- Monitor store ratings and customer feedback.
+- Update store name, email, and address.
+- Upload and update store images.
+- Change account password.
 
 ### Administrator
-- Admin dashboard
-- Manage users and store owners
-- Manage registered stores
-- Monitor platform activity
+- Admin dashboard.
+- Manage users and store owners.
+- Manage registered stores.
+- Monitor platform activity.
 
 ## Technology Stack
 
@@ -106,15 +109,11 @@ RateSphere/
 │   │   ├── scripts/
 │   │   └── server.js
 │   ├── prisma/
-│   ├── package.json
-│   └── prisma.schema
+│   │   └── schema.prisma
+│   └── package.json
 │
 ├── documentation/
 │   └── screenshots/
-│       ├── user Dashboard.png
-│       ├── user dashboard2.png
-│       ├── Admin Dashboard.png
-│       └── store owner dashboard.png
 │
 └── README.md
 ```
@@ -130,10 +129,10 @@ Install the following:
 - PostgreSQL
 - Git
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/RateSphere.git
+git clone https://github.com/Rajesh-poojary053/RateSphere.git
 cd RateSphere
 ```
 
@@ -146,26 +145,28 @@ npm install
 
 Create a `.env` file inside the backend folder.
 
-Configure the environment variables required by your backend, including:
+Configure the required environment variables:
 
 ```env
 DATABASE_URL=your_postgresql_connection_string
 JWT_SECRET=your_secure_jwt_secret
+JWT_EXPIRES_IN=1d
 PORT=5000
+CLIENT_URL=http://localhost:5173
 ```
 
-Add your Cloudinary credentials and any other variables required by your backend configuration.
+Also configure the Cloudinary credentials required by the application.
 
-Generate the Prisma client:
+Generate Prisma Client:
 
 ```bash
 npx prisma generate
 ```
 
-If your project contains Prisma migrations, apply them to your database:
+Initialize the database schema against your development database:
 
 ```bash
-npx prisma migrate deploy
+npx prisma db push
 ```
 
 Start the backend:
@@ -174,7 +175,7 @@ Start the backend:
 npm run dev
 ```
 
-The backend will run locally at:
+Backend URL:
 
 ```text
 http://localhost:5000
@@ -201,145 +202,82 @@ Start the frontend:
 npm run dev
 ```
 
-Open the application in your browser:
+Open the application:
 
 ```text
 http://localhost:5173
 ```
 
-## GitHub Repository
-
-The source code and project documentation are available in the GitHub repository.
-
-Repository:
-
-https://github.com/YOUR_USERNAME/RateSphere
-
 ## Deployment
 
-RateSphere can be deployed using Render for the backend and Vercel for the frontend.
+RateSphere is deployed using Render and Vercel.
 
 ### Backend Deployment – Render
 
-1. Push the project to GitHub.
-2. Open [Render](https://render.com).
-3. Create a new **Web Service**.
-4. Connect your RateSphere GitHub repository.
-5. Configure the backend service.
+- Platform: Render
+- Service: Node.js Web Service
+- Root Directory: `backend`
+- Build Command: `npm install && npx prisma generate`
+- Start Command: `npm start`
 
-If your backend is inside the `backend` folder, set:
+Production backend:
 
-**Root Directory**
+https://ratesphere-backend.onrender.com
 
-```text
-backend
-```
+Configure the required environment variables in Render, including:
 
-**Build Command**
+- `DATABASE_URL`
+- `JWT_SECRET`
+- `JWT_EXPIRES_IN`
+- `CLIENT_URL`
+- Cloudinary credentials
 
-```bash
-npm install
-```
-
-**Start Command**
-
-```bash
-npm start
-```
-
-If your backend does not have a production start script, configure the start command according to your backend's `package.json`.
-
-Add the required backend environment variables in the Render dashboard.
-
-Important environment variables include:
-
-```env
-DATABASE_URL
-JWT_SECRET
-```
-
-Also configure your Cloudinary credentials and other variables required by the application.
-
-Use a production PostgreSQL database and update the database connection string accordingly.
-
-After deployment, Render will provide a backend URL similar to:
-
-```text
-https://ratesphere-api.onrender.com
-```
-
-Use your actual Render URL in the frontend configuration.
+The production database schema must be initialized against the Render PostgreSQL database.
 
 ### Frontend Deployment – Vercel
 
-1. Open [Vercel](https://vercel.com).
-2. Import the RateSphere GitHub repository.
-3. Configure the frontend project.
+- Platform: Vercel
+- Root Directory: `frontend`
+- Framework: Vite
+- Build Command: `npm run build`
+- Output Directory: `dist`
 
-If the frontend is inside the `frontend` folder, set:
-
-**Root Directory**
-
-```text
-frontend
-```
-
-**Build Command**
-
-```bash
-npm run build
-```
-
-**Output Directory**
-
-```text
-dist
-```
-
-Add the frontend environment variable:
+Frontend environment variable:
 
 ```env
-VITE_API_URL=https://YOUR_RENDER_BACKEND_URL/api
+VITE_API_URL=https://ratesphere-backend.onrender.com/api
 ```
 
-Replace the value with your actual Render backend URL.
+Live website:
 
-Deploy the application.
+https://rate-sphere.vercel.app
 
-Vercel will provide a frontend URL similar to:
-
-```text
-https://ratesphere.vercel.app
-```
-
-### Production Configuration
+## Production Configuration
 
 Before using the deployed application:
 
 - Configure the production PostgreSQL database.
 - Add all required backend environment variables.
 - Configure Cloudinary for image uploads.
-- Update the frontend API URL to the Render backend.
-- Configure backend CORS to allow your Vercel frontend domain.
+- Set the frontend API URL to the deployed Render backend.
+- Configure CORS to allow the Vercel frontend domain.
 - Never upload `.env` files or secret credentials to GitHub.
 
 ## Future Improvements
 
-- Email verification
-- Password reset functionality
-- Advanced store recommendations
-- Improved analytics
-- Enhanced store search and filtering
+- Email verification.
+- Password reset functionality.
+- Advanced store recommendations.
+- Improved analytics.
+- Enhanced store search and filtering.
 
 ## Author
 
 **Rajesh Poojary**
 
-B.Tech (Hons.) – Computer Science and Data Science
-
+B.Tech (Hons.) – Computer Science and Data Science  
 Vidyashilp University
 
 ## License
 
-This project was developed for academic and learning purposes.
->>>>>>> 2493e5e (Complete RateSphere project)
+This project was developed for learning purposes.
