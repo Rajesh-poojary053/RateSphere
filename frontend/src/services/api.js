@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
   timeout: 15000,
   headers: {
     Accept: "application/json",
@@ -18,7 +18,6 @@ api.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // Allow browser to set multipart/form-data boundary
     if (config.data instanceof FormData) {
       delete config.headers["Content-Type"];
       delete config.headers["content-type"];
@@ -51,7 +50,7 @@ api.interceptors.response.use(
   }
 );
 
-// Change password for normal users and store owners
+// Change password
 api.changePassword = (currentPassword, newPassword) => {
   return api.put("/password/change", {
     currentPassword,
