@@ -274,4 +274,4 @@ Vidyashilp University
 
 ## License
 
-This project was developed for academic and learning purposes.
+This project was developed for  learning purposes.
